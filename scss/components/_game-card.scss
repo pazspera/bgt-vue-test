@@ -1,0 +1,16 @@
+.game-card{
+    max-width: 300px;
+
+    &__header,
+    &__body{
+        padding: 1em;
+    }
+
+    &__header{
+        background-color: aquamarine;
+    }
+
+    &__body{
+        background-color: white;
+    }
+}

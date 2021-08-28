@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-    
+    <link rel="stylesheet" href="css/main.css">
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@next"></script>
     <title>BGT Prueba Vue</title>
@@ -13,8 +13,25 @@
 <body>
     
     <main id="app">
+        <div class="container">
+            <h1>{{ name }}</h1>
+        </div>
         
-        
+        <div class="card-grid">
+            <div class="container">
+                <div class="game-card" >
+                    <div class="game-card__header">
+                        <h3 class="game-card__title">{{ card_title }}</h3>
+                        <p class="game-card__date">{{  card_date }}</p>
+                    </div>
+                    <div class="game-card__body">
+                        <ul>
+                            <li v-for="player in card_players" :key="card_players.id">{{ player.player_name }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 

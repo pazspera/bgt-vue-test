@@ -20,4 +20,25 @@ img {
   width: 100%;
   display: block;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.game-card {
+  max-width: 300px;
+}
+
+.game-card__header, .game-card__body {
+  padding: 1em;
+}
+
+.game-card__header {
+  background-color: aquamarine;
+}
+
+.game-card__body {
+  background-color: white;
+}
 /*# sourceMappingURL=main.css.map */
