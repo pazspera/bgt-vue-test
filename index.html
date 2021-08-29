@@ -19,7 +19,21 @@
         
         <div class="card-grid">
             <div class="container">
-                <div class="game-card" >
+                <!-- Multiple cards -->
+                <div class="game-card" v-for="game_card in game_cards">
+                    <div class="game-card__header">
+                        <h3 class="game-card__title">{{ game_card.game }}</h3>
+                        <p class="game-card__date">{{ game_card.date }}</p>
+                    </div>
+                    <div class="game-card__body">
+                        <ul>
+                            <li v-for="player in game_cards.players">{{ player.player_name }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Single card
+                <div class="game-card">
                     <div class="game-card__header">
                         <h3 class="game-card__title">{{ card_title }}</h3>
                         <p class="game-card__date">{{  card_date }}</p>
@@ -29,7 +43,7 @@
                             <li v-for="player in card_players" :key="card_players.id">{{ player.player_name }}</li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
