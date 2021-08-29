@@ -7,7 +7,7 @@ app.component('game-card', {
             <p class="game-card__date">{{ game_card.date }}</p>
         </div>
         <div class="game-card__body">
-            <game-card-players :players="players"></game-card-players>
+            <game-card-players :players="game_card.players"></game-card-players>
         </div>
     </div>`,
     data(){

@@ -1,7 +1,7 @@
 app.component('game-card-players', {
     props: {
         players: {
-            type: Object,
+            type: Array,
             required: true
         }
     },
