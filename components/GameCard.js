@@ -20,4 +20,5 @@ app.component('game-card', {
             ]
         }
     }
+    // Added comment
 });
