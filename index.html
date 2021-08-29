@@ -20,18 +20,8 @@
         <div class="card-grid">
             <div class="container">
                 <!-- Multiple cards -->
-                <div class="game-card" v-for="game_card in game_cards">
-                    <div class="game-card__header">
-                        <h3 class="game-card__title">{{ game_card.game }}</h3>
-                        <p class="game-card__date">{{ game_card.date }}</p>
-                    </div>
-                    <div class="game-card__body">
-                        <ul>
-                            <li v-for="player in game_cards.players">{{ player.player_name }}</li>
-                        </ul>
-                    </div>
-                </div>
-
+                <game-card></game-card>
+                
                 <!-- Single card
                 <div class="game-card">
                     <div class="game-card__header">
@@ -51,6 +41,9 @@
 
     <!-- Import App -->
     <script src="./main.js"></script>
+    <!-- Import Components -->
+    <script src="./components/GameCard.js"></script>
+    <script src="./components/GameCardPlayers.js"></script>
     <!-- Mount App -->
     <script>
         const mountedApp = app.mount('#app');
