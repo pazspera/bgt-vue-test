@@ -1,8 +1,8 @@
 app.component('game-card', {
     template: 
     /* html */
-    `<div class="game-card" v-for="game_card in game_cards">
-        <div class="game-card__header">
+    `<div class="game-card" v-for="game_card in game_cards" >
+        <div class="game-card__header" :class="game_card.type">
             <h3 class="game-card__title">{{ game_card.game }}</h3>
             <p class="game-card__date">{{ game_card.date }}</p>
         </div>
@@ -20,16 +20,18 @@ app.component('game-card', {
                     players: [
                         { id: 1, player_name: 'Zeuchi', winner: true },
                         { id: 2, player_name: 'Marea', winner: false}
-                    ]
+                    ], 
+                    type: 'type--deckbuilding',
                 },
                 {
                     id: 2,
-                    game: 'Star Realms',
+                    game: 'Seven Wonders',
                     date: '15/07/2021',
                     players: [
                         { id: 1, player_name: 'Zeuchi', winner: false },
                         { id: 2, player_name: 'Marea', winner: true}
-                    ]
+                    ], 
+                    type: 'type--strategy'
                 }
             ],
             /* card_title: 'Dominion',

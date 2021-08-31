@@ -42,4 +42,12 @@ img {
 .game-card__body {
   background-color: white;
 }
+
+.type--deckbuilding {
+  background-color: lightsalmon;
+}
+
+.type--strategy {
+  background-color: lightseagreen;
+}
 /*# sourceMappingURL=main.css.map */

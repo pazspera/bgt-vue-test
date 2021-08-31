@@ -15,3 +15,14 @@
         background-color: white;
     }
 }
+
+.type{
+
+    &--deckbuilding{
+        background-color: lightsalmon;
+    }
+
+    &--strategy {
+        background-color: lightseagreen;
+    }
+}
