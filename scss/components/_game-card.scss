@@ -14,7 +14,29 @@
     &__body{
         background-color: white;
     }
+
+    &__title,
+    &__date {
+        margin: 0;
+    }
+
+    &__title{
+        font-size: $size5;
+    }
+
+    &__date{
+        font-size: $size7;
+    }
 }
+
+.game-card__players {
+    margin: 0;
+}
+
+.game-card__body ul {
+    margin: 0;
+}
+
 
 .type{
 

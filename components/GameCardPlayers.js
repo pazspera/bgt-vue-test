@@ -9,6 +9,6 @@ app.component('game-card-players', {
     /* html */
     `
     <ul>
-        <li v-for="player in players">{{ player.player_name }} <img v-if="player.winner" src="img/crown-solid.svg" class="winner-img"></li>
+        <li v-for="player in players" class="game-card__players">{{ player.player_name }} <img v-if="player.winner" src="img/crown-solid.svg" class="winner-img"></li>
     </ul>`,
 });

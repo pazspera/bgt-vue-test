@@ -32,6 +32,16 @@ app.component('game-card', {
                         { id: 2, player_name: 'Marea', winner: true}
                     ], 
                     type: 'type--strategy'
+                },
+                {
+                    id: 3,
+                    game: 'Star Realms',
+                    date: '07/09/2021',
+                    players: [
+                        { id: 1, player_name: 'Zeuchi', winner: true },
+                        { id: 2, player_name: 'Marea', winner: false}
+                    ], 
+                    type: 'type--deckbuilding',
                 }
             ],
             /* card_title: 'Dominion',
