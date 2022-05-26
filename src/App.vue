@@ -34,24 +34,68 @@
 
 <style lang="scss">
 @import "@/assets/scss/main.scss";
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+/*  Header  */
+.navbar {
+  background-color: $black !important;
 }
 
-nav {
-  padding: 30px;
+.nav-link {
+  font-size: $size5;
+  font-weight: 700;
+  font-family: $font-text;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+/*  Agrega margin a los nav-links en desktop */
+@media (min-width: 996px) {
+  .nav-item {
+    margin-left: 1.2rem !important;
+  }
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+// Override color a los nav-links
+.navbar-dark,
+.navbar-brand,
+.navbar-nav,
+.nav-link {
+  color: $white !important;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: $primary-medium !important;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+// Color para mostrar página activa en navbar
+.active {
+  font-weight: 700;
+  color: $white !important;
+}
+
+// Override color del navbar-toggler
+.navbar-dark,
+.navbar-toggler {
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $primary-medium;
+  }
+}
+
+// Override color de navbar-dark
+.bg-dark {
+  background-color: $black !important;
+}
+
+// Anchor para arreglar padding link menu
+.anchor {
+  display: block;
+  height: 79px;
+  margin-top: -79px;
+  visibility: hidden;
 }
 </style>
