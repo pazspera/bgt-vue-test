@@ -3,8 +3,7 @@
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <router-link class="navbar-brand" to="/"><img src="@/assets/logo_dark.png" /></router-link>
-          <!-- <a class="navbar-brand" href="index.html"></a> -->
+          <router-link class="navbar-brand" to="/"><img src="@/assets/img/logo_dark.png" /></router-link>
           <button
             class="navbar-toggler"
             type="button"
