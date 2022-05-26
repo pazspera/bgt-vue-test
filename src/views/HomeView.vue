@@ -11,7 +11,14 @@ import TestComponent from "@/components/TestComponent.vue";
 export default {
   name: "HomeView",
   components: {
-    TestComponent
+    TestComponent,
   },
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/scss/main.scss";
+.home {
+  background-color: $gray-light;
+}
+</style>

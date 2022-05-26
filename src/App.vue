@@ -3,7 +3,7 @@
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <router-link class="navbar-brand" to="/"><img src="@/assets/logo_dark.png"></router-link>
+          <router-link class="navbar-brand" to="/"><img src="@/assets/logo_dark.png" /></router-link>
           <!-- <a class="navbar-brand" href="index.html"></a> -->
           <button
             class="navbar-toggler"
@@ -29,15 +29,12 @@
         </div>
       </nav>
     </header>
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view />
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import "@/assets/scss/main.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
