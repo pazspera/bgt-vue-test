@@ -1,6 +1,12 @@
 <template>
   <div class="boardgames">
-    <h2>Soy la vista de Boardgames</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Soy la vista de Boardgames</h2>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

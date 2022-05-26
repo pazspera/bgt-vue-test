@@ -1,7 +1,13 @@
 <template>
-    <div class="players">
-        <h2>Soy la vista de Players</h2>
+  <div class="players">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Soy la vista de Players</h2>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
