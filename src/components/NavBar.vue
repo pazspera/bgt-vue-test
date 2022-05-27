@@ -44,7 +44,7 @@ export default {
 }
 
 .nav-link {
-  font-size: $size5;
+  font-size: $size4;
   font-weight: 500;
   font-family: $font-text;
 }

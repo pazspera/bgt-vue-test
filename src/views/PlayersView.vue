@@ -1,6 +1,7 @@
 <template>
   <div class="players">
-    <HeroSection title="Jugadores" bgClass="playersBg"/>
+    <HeroSection title="Jugadores" bg-class="playersBg" />
+    <SingleFieldForm :url="this.playerURL" />
     <div class="container">
       <div class="row">
         <div class="col">
@@ -14,11 +15,18 @@
 <script>
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
+import SingleFieldForm from "@/components/SingleFieldForm.vue";
 
 export default {
   name: "BoardGamesView",
   components: {
     HeroSection,
+    SingleFieldForm,
+  },
+  data() {
+    return {
+      playerURL: "https://628a91d1e5e5a9ad3225e467.mockapi.io/bgtPlayers",
+    };
   },
 };
 </script>
