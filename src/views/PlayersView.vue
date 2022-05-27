@@ -1,6 +1,6 @@
 <template>
   <div class="players">
-    <HeroSection title="Jugadores" bg-class="playersBg" />
+    <HeroSection :title="heroTitle" :bg-class="bgClass" />
     <SingleFieldForm :url="this.playerURL" />
     <div class="container">
       <div class="row">
@@ -26,6 +26,8 @@ export default {
   data() {
     return {
       playerURL: "https://628a91d1e5e5a9ad3225e467.mockapi.io/bgtPlayers",
+      heroTitle: "Jugadores",
+      bgClass: "playersBg",
     };
   },
 };

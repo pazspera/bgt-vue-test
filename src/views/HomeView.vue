@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HeroSection title="Board Game Tracker" bg-class="indexBg"/>
+    <HeroSection :title="heroTitle" :bg-class="bgClass" />
     <TestComponent />
   </div>
 </template>
@@ -15,6 +15,12 @@ export default {
   components: {
     TestComponent,
     HeroSection,
+  },
+  data() {
+    return {
+      heroTitle: "Board Game Tracker",
+      bgClass: "indexBg",
+    };
   },
 };
 </script>

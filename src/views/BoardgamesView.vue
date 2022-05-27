@@ -1,6 +1,6 @@
 <template>
   <div class="boardgames">
-    <HeroSection title="Juegos" bg-class="boardGamesBg" />
+    <HeroSection :title="heroTitle" :bg-class="bgClass" />
     <SingleFieldForm :url="this.boardgamesURL" />
     <div class="container">
       <div class="row">
@@ -25,9 +25,11 @@ export default {
   },
   data() {
     return {
-      boardgamesURL: "https://628a91d1e5e5a9ad3225e467.mockapi.io/bgtBoardgames"
-    }
-  }
+      boardgamesURL: "https://628a91d1e5e5a9ad3225e467.mockapi.io/bgtBoardgames",
+      heroTitle: "Juegos",
+      bgClass: "boardGamesBg",
+    };
+  },
 };
 </script>
 
