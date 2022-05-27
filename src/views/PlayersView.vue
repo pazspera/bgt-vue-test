@@ -1,6 +1,6 @@
 <template>
   <div class="players">
-    <HeroSection title="Jugadores"/>
+    <HeroSection title="Jugadores" bgClass="playersBg"/>
     <div class="container">
       <div class="row">
         <div class="col">

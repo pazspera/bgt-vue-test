@@ -1,9 +1,11 @@
 <template>
-  <section class="hero" id="games">
+  <section class="hero" :class="bgClass">
     <div class="hero__container container">
       <div class="row">
         <div class="col-12 col-md-9 col-lg-8">
-          <h1 class="hero__title mb-5"><span>{{ title }}</span></h1>
+          <h1 class="hero__title mb-5">
+            <span>{{ title }}</span>
+          </h1>
         </div>
       </div>
     </div>
@@ -18,6 +20,10 @@ export default {
       type: String,
       required: true,
     },
+    bgClass: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -29,8 +35,11 @@ export default {
   height: 95vh;
   padding: 1em 0;
   display: flex;
-  background-color: red;
   background-position: center;
+  max-width: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   &__container {
     display: flex;
@@ -97,5 +106,17 @@ export default {
   .hero {
     height: 85vh;
   }
+}
+
+.indexBg {
+  background-image: url(@/assets/img/hero_bg_home.jpg);
+}
+
+.boardGamesBg {
+  background-image: url(@/assets/img/hero_bg_boardgames.jpg);
+}
+
+.playersBg {
+  background-image: url(@/assets/img/hero_bg_players.jpg);
 }
 </style>

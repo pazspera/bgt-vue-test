@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HeroSection title="Board Game Tracker" />
+    <HeroSection title="Board Game Tracker" bgClass="indexBg"/>
     <TestComponent />
   </div>
 </template>

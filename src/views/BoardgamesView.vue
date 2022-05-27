@@ -1,6 +1,6 @@
 <template>
   <div class="boardgames">
-    <HeroSection title="Juegos"/>
+    <HeroSection title="Juegos" bgClass="boardGamesBg"/>
     <div class="container">
       <div class="row">
         <div class="col">
