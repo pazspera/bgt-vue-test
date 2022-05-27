@@ -1,5 +1,6 @@
 <template>
   <div class="boardgames">
+    <HeroSection title="Juegos"/>
     <div class="container">
       <div class="row">
         <div class="col">
@@ -9,6 +10,19 @@
     </div>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import HeroSection from "@/components/HeroSection.vue";
+
+export default {
+  name: "BoardGamesView",
+  components: {
+    HeroSection,
+  },
+};
+</script>
+
 
 <style scoped lang="scss">
 @import "@/assets/scss/main.scss";

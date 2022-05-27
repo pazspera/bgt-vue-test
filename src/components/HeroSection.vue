@@ -23,11 +23,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/main.scss";
 /*  Hero    */
 .hero {
   height: 95vh;
   padding: 1em 0;
   display: flex;
+  background-color: red;
   background-position: center;
 
   &__container {
