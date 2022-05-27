@@ -63,12 +63,12 @@ export default {
 .nav-link {
   color: $white !important;
   text-transform: uppercase;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover,
   &:focus {
     color: $primary-medium !important;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
 }
 
