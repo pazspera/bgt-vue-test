@@ -51,11 +51,12 @@ export default {
   &__title {
     margin: 0.5em 0;
     letter-spacing: 2px;
+    font-size: $sizeXL;
   }
 
   &__text {
     margin: 0 0 1.5em 0;
-    font-size: $size1;
+    font-size: $sizeXL;
   }
 
   &__title,
@@ -88,7 +89,7 @@ export default {
      */
 
   &__title span {
-    font-size: $size1;
+    font-size: $sizeXL;
     padding: 0.05em 0.3em 0.05em 0.3em;
     line-height: 1.3;
   }
