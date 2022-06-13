@@ -25,7 +25,7 @@ export default {
   methods: {
     async fetchData() {
       try {
-        fetch(`/boardgame/all`, {
+        fetch(`/api/boardgame/all`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
