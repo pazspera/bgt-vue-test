@@ -1,7 +1,7 @@
 #!/bin/bash
 set +x
 
-VERSION=`cat ../VERSION`
+VERSION=`cat ./VERSION`
 if [[ $VERSION =~ v[0-9]+.[0-9]+.[0-9]+$ ]]; then 
    echo "$VERSION"
 else

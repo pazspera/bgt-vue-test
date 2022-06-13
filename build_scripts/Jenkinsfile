@@ -14,10 +14,10 @@ pipeline {
         stage('Setup') {
             steps {
                 dir("${WORKSPACE}/") {
-                    sh 'chmod +x ./image-version.sh'
+                    sh 'chmod +x ./build_scripts/image-version.sh'
                     script {
                         BUILD_VERSION = sh (
-                            script: './image-version.sh',
+                            script: './build_scripts/image-version.sh',
                             returnStdout: true
                         ).trim()
                     }
