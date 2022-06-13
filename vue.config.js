@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     proxy: {
-      "^/boardgame": {
+      "^/api": {
         target: process.env.VUE_APP_API_PROXY,
         changeOrigin: true,
         secure: false,
