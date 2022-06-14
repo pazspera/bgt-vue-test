@@ -1,0 +1,52 @@
+pipeline {
+    agent { 
+      node { 
+        label 'testing' 
+      }
+    }
+    environment { 
+        REGISTRY = credentials('dockerhub_bgtapp')
+        registryCredential = 'dockerhub' 
+        dockerImage = ''
+        BUILD_VERSION = 'v0.0.1'
+    }
+    stages {
+        stage('Setup') {
+            steps {
+                dir("${WORKSPACE}/") {
+                    sh 'chmod +x ./build_scripts/image-version.sh'
+                    script {
+                        BUILD_VERSION = sh (
+                            script: './build_scripts/image-version.sh',
+                            returnStdout: true
+                        ).trim()
+                    }
+                    echo "version: ${BUILD_VERSION}"
+                }
+            }
+        }
+        stage('Building our image') {
+            steps {
+              script {
+                  echo "===> Building docker image version ${BUILD_VERSION}"
+                  dockerImage = docker.build "${env.REGISTRY}" + ":$BUILD_VERSION"
+              }
+            }
+        }
+        stage('Deploy our image') {
+            steps {
+                script {
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push()
+                        dockerImage.push('latest')
+                    }
+                }
+            }
+        }
+        stage('Cleaning up') {
+             steps {
+                 sh "docker rmi $registry:$BUILD_VERSION"
+             }
+        }
+    }
+}
