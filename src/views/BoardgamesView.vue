@@ -86,6 +86,10 @@ export default {
     },
     resetForm() {
       this.boardgameFormTitle = "Agregar juego";
+      let gameName = document.getElementById("game-name");
+      gameName.value = '';
+      gameName.dataset.id = '';
+      gameName.dataset.name = '';
     },
   },
 };
