@@ -13,7 +13,7 @@
               <input type="text" id="game-name" class="form-control" name="game-name" required />
             </div>
             <div class="mb-3">
-              <button class="btn btn__secondary reset me-3">Reset</button>
+              <button class="btn btn__secondary reset me-3" @click="resetForm">Reset</button>
               <input type="submit" value="Enviar" class="btn btn__secondary" />
             </div>
           </form>
@@ -33,8 +33,8 @@
                 <tr v-for="game in boardgames" :key="game.id">
                   <td class="align-middle">{{ game.name }}</td>
                   <td>
-                    <button class="edit btn btn__secondary me-3" :data-id="game.id" :data-name="game.name">Editar</button>
-                    <button class="delete btn btn__secondary" :data-id="game.id" :data-name="game.name">Eliminar</button>
+                    <button class="edit btn btn__secondary me-3" :data-id="game.id" :data-name="game.name" @click="editGame">Editar</button>
+                    <button class="delete btn btn__secondary" :data-id="game.id" :data-name="game.name" @click="deleteGame">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
@@ -70,6 +70,17 @@ export default {
       this.boardgames = result.data;
     });
   },
+  methods: {
+    editGame() {
+      this.boardgameFormTitle = "Editar juego";
+    },
+    deleteGame() {
+      this.boardgameFormTitle = "Borrar juego";
+    },
+    resetForm() {
+      this.boardgameFormTitle = "Agregar juego";
+    }
+  }
 };
 </script>
 
