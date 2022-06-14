@@ -14,7 +14,7 @@
             </div>
             <div class="mb-3">
               <button class="btn btn__secondary reset me-3" @click="resetForm">Reset</button>
-              <input type="submit" value="Enviar" class="btn btn__secondary" />
+              <input type="submit" value="Enviar" class="btn btn__secondary" @click="postPutGame" />
             </div>
           </form>
         </div>
@@ -50,6 +50,7 @@
 import axios from "axios";
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
+let gameName = document.getElementById("game-name");
 
 export default {
   name: "BoardGamesView",
@@ -75,7 +76,6 @@ export default {
       this.boardgameFormTitle = "Editar juego";
       // Guarda el input game-name en una variable y le asigna
       // los valores que están en el btn del juego a editar
-      let gameName = document.getElementById("game-name");
       console.log(gameName);
       gameName.value = e.target.dataset.name;
       gameName.dataset.id = e.target.dataset.id;
@@ -86,11 +86,11 @@ export default {
     },
     resetForm() {
       this.boardgameFormTitle = "Agregar juego";
-      let gameName = document.getElementById("game-name");
-      gameName.value = '';
-      gameName.dataset.id = '';
-      gameName.dataset.name = '';
+      gameName.value = "";
+      gameName.dataset.id = "";
+      gameName.dataset.name = "";
     },
+    postPutGame() {},
   },
 };
 </script>
