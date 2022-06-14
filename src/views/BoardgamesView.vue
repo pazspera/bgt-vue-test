@@ -30,7 +30,13 @@
                 </tr>
               </thead>
               <tbody>
-                <TableRow v-for="game in boardgames" :key="game.id" :row="game" />
+                <tr v-for="game in boardgames" :key="game.id">
+                  <td class="align-middle">{{ game.name }}</td>
+                  <td>
+                    <button class="edit btn btn__secondary me-3" :data-id="game.id" :data-name="game.name">Editar</button>
+                    <button class="delete btn btn__secondary" :data-id="game.id" :data-name="game.name">Eliminar</button>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -44,13 +50,11 @@
 import axios from "axios";
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
-import TableRow from "@/components/TableRow.vue";
 
 export default {
   name: "BoardGamesView",
   components: {
-    HeroSection,
-    TableRow,
+    HeroSection
   },
   data() {
     return {
