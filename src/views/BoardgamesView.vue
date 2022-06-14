@@ -4,18 +4,36 @@
 
     <div class="container my-5">
       <div class="row">
-        <div class="col">
+        <!-- Form -->
+        <div class="col-12">
           <h2>{{ boardgameFormTitle }}</h2>
           <form @submit.prevent autocomplete="off">
             <div class="mb-3">
               <label for="game-name" class="form-label">Nombre del Juego</label>
-              <input type="text" id="game-name" class="form-control" name="game-name" required>
+              <input type="text" id="game-name" class="form-control" name="game-name" required />
             </div>
             <div class="mb-3">
               <button class="btn btn__secondary reset me-3">Reset</button>
-              <input type="submit" value="Enviar" class="btn btn__secondary">
+              <input type="submit" value="Enviar" class="btn btn__secondary" />
             </div>
           </form>
+        </div>
+        <!-- Data Table -->
+        <div class="col-12">
+          <div class="my-5">
+            <h2>Juegos disponibles</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <TableRow v-for="game in boardgames" :key="game.id" :row="game" />
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -23,13 +41,16 @@
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
+import TableRow from "@/components/TableRow.vue";
 
 export default {
   name: "BoardGamesView",
   components: {
     HeroSection,
+    TableRow,
   },
   data() {
     return {
@@ -37,7 +58,13 @@ export default {
       heroTitle: "Juegos",
       bgClass: "boardGamesBg",
       boardgameFormTitle: "Agregar juego",
+      boardgames: [],
     };
+  },
+  created() {
+    axios.get(this.boardgamesURL).then((result) => {
+      this.boardgames = result.data;
+    });
   },
 };
 </script>
