@@ -90,7 +90,9 @@ export default {
       gameName.dataset.id = "";
       gameName.dataset.name = "";
     },
-    postPutGame() {},
+    postPutGame() {
+      console.log(gameName.value);
+    },
   },
 };
 </script>
