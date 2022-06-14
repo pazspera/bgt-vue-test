@@ -10,7 +10,7 @@
           <form @submit.prevent autocomplete="off">
             <div class="mb-3">
               <label for="game-name" class="form-label">Nombre del Juego</label>
-              <input type="text" id="game-name" class="form-control" name="game-name" required />
+              <input type="text" id="game-name" class="form-control" name="game-name" data-id="" data-name="" required />
             </div>
             <div class="mb-3">
               <button class="btn btn__secondary reset me-3" @click="resetForm">Reset</button>
@@ -54,7 +54,7 @@ import HeroSection from "@/components/HeroSection.vue";
 export default {
   name: "BoardGamesView",
   components: {
-    HeroSection
+    HeroSection,
   },
   data() {
     return {
@@ -71,16 +71,23 @@ export default {
     });
   },
   methods: {
-    editGame() {
+    editGame(e) {
       this.boardgameFormTitle = "Editar juego";
+      // Guarda el input game-name en una variable y le asigna
+      // los valores que están en el btn del juego a editar
+      let gameName = document.getElementById("game-name");
+      console.log(gameName);
+      gameName.value = e.target.dataset.name;
+      gameName.dataset.id = e.target.dataset.id;
+      gameName.dataset.name = e.target.dataset.name;
     },
     deleteGame() {
       this.boardgameFormTitle = "Borrar juego";
     },
     resetForm() {
       this.boardgameFormTitle = "Agregar juego";
-    }
-  }
+    },
+  },
 };
 </script>
 
