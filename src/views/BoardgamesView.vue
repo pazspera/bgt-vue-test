@@ -6,15 +6,37 @@
       <div class="row">
         <!-- Form -->
         <div class="col-12">
-          <h2>{{ boardgameFormTitle }}</h2>
+          <h2>{{ boardGameFormTitle }}</h2>
           <form @submit.prevent autocomplete="off">
             <div class="mb-3">
-              <label for="game-name" class="form-label">Nombre del Juego</label>
-              <input type="text" id="game-name" class="form-control" name="game-name" data-id="" data-name="" required />
+              <label for="game-id" class="form-label">Id</label>
+              <input type="text" name="game-id" class="form-control" v-model="inputBoardGame.id" />
+              <p class="my-3">{{ inputBoardGame.id }}</p>
             </div>
             <div class="mb-3">
-              <button class="btn btn__secondary reset me-3" @click="resetForm">Reset</button>
-              <input type="submit" value="Enviar" class="btn btn__secondary" @click="postPutGame" />
+              <label for="game-name" class="form-label">Nombre *</label>
+              <input type="text" id="game-name" class="form-control" name="game-name" v-model="inputBoardGame.name" required />
+              <div class="form-text">Campo requerido</div>
+              <p class="my-3">{{ inputBoardGame.name }}</p>
+            </div>
+            <div class="mb-3">
+              <label for="game-boardGameGeekId" class="form-label">Board Game Geek Id</label>
+              <input type="text" class="form-control" name="game-boardGameGeekId" v-model="inputBoardGame.boardGameGeekId" />
+              <p class="my-3">{{ inputBoardGame.boardGameGeekId }}</p>
+            </div>
+            <div class="mb-3">
+              <label for="game-description" class="form-label">Descripción</label>
+              <input type="text" class="form-control" name="game-description" v-model="inputBoardGame.description" />
+              <p class="my-3">{{ inputBoardGame.description }}</p>
+            </div>
+            <div class="mb-3">
+              <label for="game-image" class="form-label">Imagen</label>
+              <input type="text" class="form-control" name="game-image" v-model="inputBoardGame.image" />
+              <p class="my-3">{{ inputBoardGame.image }}</p>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn__secondary reset me-3">Reset</button>
+              <input type="submit" value="Enviar" class="btn btn__secondary" />
             </div>
           </form>
         </div>
@@ -33,8 +55,8 @@
                 <tr v-for="boardGame in boardGames" :key="boardGame.id">
                   <td class="align-middle">{{ boardGame.name }}</td>
                   <td>
-                    <button class="edit btn btn__secondary me-3" :data-id="boardGame.id" :data-name="boardGame.name" @click="editGame">Editar</button>
-                    <button class="delete btn btn__secondary" :data-id="boardGame.id" :data-name="boardGame.name" @click="deleteGame">Eliminar</button>
+                    <button class="edit btn btn__secondary me-3">Editar</button>
+                    <button class="delete btn btn__secondary">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
@@ -49,7 +71,6 @@
 <script>
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
-let gameName = document.getElementById("game-name");
 
 export default {
   name: "BoardGamesView",
@@ -61,8 +82,15 @@ export default {
       boardGamesURL: "/api/boardgame/all",
       heroTitle: "Juegos",
       bgClass: "boardGamesBg",
-      boardgameFormTitle: "Agregar juego",
+      boardGameFormTitle: "Agregar juego",
       boardGames: null,
+      inputBoardGame: {
+        id: "",
+        name: "",
+        boardGameGeekId: "",
+        Description: "",
+        Image: "",
+      },
     };
   },
   mounted() {
@@ -88,25 +116,6 @@ export default {
         console.log(error);
       }
     },
-    editGame(e) {
-      this.boardgameFormTitle = "Editar juego";
-      // Guarda el input game-name en una variable y le asigna
-      // los valores que están en el btn del juego a editar
-      console.log(gameName);
-      gameName.value = e.target.dataset.name;
-      gameName.dataset.id = e.target.dataset.id;
-      gameName.dataset.name = e.target.dataset.name;
-    },
-    deleteGame() {
-      this.boardgameFormTitle = "Borrar juego";
-    },
-    resetForm() {
-      this.boardgameFormTitle = "Agregar juego";
-      gameName.value = "";
-      gameName.dataset.id = "";
-      gameName.dataset.name = "";
-    },
-    postPutGame() {},
   },
 };
 </script>
