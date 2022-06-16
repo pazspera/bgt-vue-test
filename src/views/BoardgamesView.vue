@@ -29,12 +29,12 @@
                   <th>Acciones</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr v-for="game in boardgames" :key="game.id">
-                  <td class="align-middle">{{ game.name }}</td>
+              <tbody v-if="boardGames">
+                <tr v-for="boardGame in boardGames" :key="boardGame.id">
+                  <td class="align-middle">{{ boardGame.name }}</td>
                   <td>
-                    <button class="edit btn btn__secondary me-3" :data-id="game.id" :data-name="game.name" @click="editGame">Editar</button>
-                    <button class="delete btn btn__secondary" :data-id="game.id" :data-name="game.name" @click="deleteGame">Eliminar</button>
+                    <button class="edit btn btn__secondary me-3" :data-id="boardGame.id" :data-name="boardGame.name" @click="editGame">Editar</button>
+                    <button class="delete btn btn__secondary" :data-id="boardGame.id" :data-name="boardGame.name" @click="deleteGame">Eliminar</button>
                   </td>
                 </tr>
               </tbody>
@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import axios from "axios";
 // @ is an alias to /src
 import HeroSection from "@/components/HeroSection.vue";
 let gameName = document.getElementById("game-name");
@@ -59,19 +58,36 @@ export default {
   },
   data() {
     return {
-      boardgamesURL: "https://628a91d1e5e5a9ad3225e467.mockapi.io/bgtBoardgames",
+      boardGamesURL: "/api/boardgame/all",
       heroTitle: "Juegos",
       bgClass: "boardGamesBg",
       boardgameFormTitle: "Agregar juego",
-      boardgames: [],
+      boardGames: null,
     };
   },
-  created() {
-    axios.get(this.boardgamesURL).then((result) => {
-      this.boardgames = result.data;
-    });
+  mounted() {
+    this.getBoardGames();
   },
   methods: {
+    async getBoardGames() {
+      try {
+        fetch(this.boardGamesURL, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((json) => {
+            this.boardGames = json;
+            console.log("boardGames:", this.boardGames);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    },
     editGame(e) {
       this.boardgameFormTitle = "Editar juego";
       // Guarda el input game-name en una variable y le asigna
