@@ -7,7 +7,7 @@
         <!-- Form -->
         <div class="col-12">
           <h2>{{ boardGameFormTitle }}</h2>
-          <form @submit.prevent autocomplete="off">
+          <form @submit.prevent="submitBoardGame" autocomplete="off">
             <div class="mb-3">
               <label for="game-id" class="form-label">Id</label>
               <input type="text" name="game-id" class="form-control" v-model="inputBoardGame.id" />
@@ -80,6 +80,7 @@ export default {
   data() {
     return {
       boardGamesURL: "/api/boardgame/all",
+      boardGamePost: "/api/boardgame/create",
       heroTitle: "Juegos",
       bgClass: "boardGamesBg",
       boardGameFormTitle: "Agregar juego",
@@ -95,8 +96,12 @@ export default {
   },
   mounted() {
     this.getBoardGames();
+    console.log(this.boardGamePost);
   },
   methods: {
+    resetForm() {
+      (this.inputBoardGame.id = ""), (this.inputBoardGame.name = ""), (this.inputBoardGame.boardGameGeekId = ""), (this.inputBoardGame.Description = ""), (this.inputBoardGame.Image = "");
+    },
     async getBoardGames() {
       try {
         fetch(this.boardGamesURL, {
@@ -114,6 +119,33 @@ export default {
           });
       } catch (error) {
         console.log(error);
+      }
+    },
+    async submitBoardGame() {
+      // Valida que nombre no esté vacío, es el único campo
+      // requerido por ahora
+      if (this.inputBoardGame.name !== "") {
+
+        // Petición POST
+        try {
+          fetch("/api/boardgame/create", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: this.inputBoardGame.id,
+              name: this.inputBoardGame.name,
+              boardGameGeekId: this.inputBoardGame.boardGameGeekId,
+              Description: this.inputBoardGame.Description,
+              Image: this.inputBoardGame.Image,
+            }),
+          });
+          // Reinicia formulario
+          this.resetForm();
+        } catch (error) {
+          console.error("error" + error);
+        }
       }
     },
   },
