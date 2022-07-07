@@ -97,6 +97,7 @@ export default {
   mounted() {
     this.getBoardGames();
     console.log(this.boardGamePost);
+    document.title = "Juegos - Board Game Tracker"
   },
   methods: {
     resetForm() {

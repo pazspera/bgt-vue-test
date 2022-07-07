@@ -30,6 +30,9 @@ export default {
       bgClass: "playersBg",
     };
   },
+  mounted() {
+    document.title = "Jugadores - Board Game Tracker"
+  }
 };
 </script>
 

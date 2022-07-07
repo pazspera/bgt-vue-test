@@ -22,6 +22,9 @@ export default {
       bgClass: "indexBg",
     };
   },
+  mounted() {
+    document.title = "Home - Board Game Tracker"
+  }
 };
 </script>
 
